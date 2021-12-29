@@ -29,14 +29,27 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <!-- <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <img src="assets/images/android-chrome-192x192.png" width="100" height="100" alt="new_image" />
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <img src="assets/images/android-chrome-192x192.png" width="100" height="100" alt="new_image" />
+      </div>
+    </div>
+    <new-page></new-page> -->
   </div>
 </template>
 
 <script>
+import NewPage from './newpage/NewPage.vue'
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  components: {
+    NewPage
   }
 }
 </script>
