@@ -13,9 +13,9 @@
       Decrement 10
     </button>
     <div class="container">
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col-lg-12 mb-3" v-for="(data, index) in user_data" :key="index">
-                    <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center ms-auto me-auto" style="max-width: 300px;">
                         <div class="image">
                             <img :src="data.avatar" alt="images" width="50" height="50" style="border-radius: 50%;" />
                         </div>
