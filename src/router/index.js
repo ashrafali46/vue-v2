@@ -17,6 +17,11 @@ const routerOptions = [
     name: 'NewPage',
     componentPath: 'newpage/NewPage'
   },
+  {
+    path: '/mixinexample',
+    name: 'MixinsExample',
+    componentPath: 'MixinsExample/MixinExample'
+  },
 ];
 
 const routes = routerOptions.map(route => {

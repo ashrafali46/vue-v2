@@ -3,6 +3,9 @@
     <h3>
       {{counter}}
     </h3>
+    <h3>
+      {{new_counter}}
+    </h3>
     <!-- <button @click="increment">
       Increment
     </button> -->
@@ -35,14 +38,21 @@
 </template>
 
 <script>
+import operations from '../mixins/operations.js';
 import NewPage from './newpage/NewPage.vue'
 export default {
   name: 'HelloWorld',
+  mixins: [operations],
   props: {
     msg: String
   },
   components: {
     NewPage
+  },
+  data() {
+    return {
+      new_counter: 0,
+    }
   },
   computed: {
     counter() {
@@ -69,9 +79,29 @@ export default {
         value: 10
       });
     },
+    performOperations(operation) {
+      switch (operation) {
+        case 'add':
+          this.new_counter = this.addition(this.new_counter, 10);
+          break;
+        case 'subtract':
+          this.new_counter = this.subtraction(this.new_counter, 10);
+          break;
+        case 'multiply':
+          this.new_counter = this.multiplication(this.new_counter, 10);
+          break;
+        case 'divide':
+          this.new_counter = this.division(this.new_counter, 10);
+          break;
+        default:
+          this.new_counter = 0;
+          break;
+      }
+    }
   },
   mounted() {
-    console.log(this.user_data)
+    console.log(this.user_data);
+    this.performOperations('subtract');
   }
   
 }

@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     counter: 0,
     error_msg:'',
+    success_msg:'',
     users_data: []
   },
   mutations: {
@@ -18,6 +19,12 @@ export default new Vuex.Store({
     // }
     decrement(state, payload) {
       state.counter -= payload.value;
+    },
+    counter(state, payload) {
+      state.counter = payload.value;
+    },
+    successMsg(state, payload) {
+      state.success_msg = payload.value;
     },
     usersData(state, payload) {
       return state.users_data = payload;
@@ -37,6 +44,9 @@ export default new Vuex.Store({
     },
     getErrorMessage(state) {
       return state.error_msg;
+    },
+    getSuccessMsg(state) {
+      return state.success_msg;
     }
   },
   modules: {
