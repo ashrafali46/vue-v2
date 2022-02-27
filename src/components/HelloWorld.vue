@@ -15,9 +15,11 @@
     <button @click="decrementWithPayload">
       Decrement 10
     </button>
+    <h1>{{emitted_data_text}}</h1>
+    <h1>{{emitted_data_text_again}}</h1>
     <div class="mt-3">
       <!-- Props Example is a child component here. -->
-      <props-example :props_data="data_new" :counter="new_counter" :arr_day="arr_day" :arr_day_obj="arr_day_obj" ></props-example>
+      <props-example @emitted_data="newEmittedData" @emitted_data_again="newEmittedDataAgain" :props_data="data_new" :counter="new_counter" :arr_day="arr_day" :arr_day_obj="arr_day_obj" ></props-example>
     </div>
     <!-- <div class="container">
         <div class="row mt-5">
@@ -61,6 +63,8 @@ export default {
       data_new: "Hello Props Example",
       arr_day: [],
       arr_day_obj: {},
+      emitted_data_text: '',
+      emitted_data_text_again: ''
     }
   },
   computed: {
@@ -106,6 +110,14 @@ export default {
           this.new_counter = 0;
           break;
       }
+    },
+    newEmittedData(emitted_data) {
+      console.log(emitted_data);
+      this.emitted_data_text = emitted_data;
+    },
+    newEmittedDataAgain(data) {
+      console.log(data)
+      this.emitted_data_text_again = data;
     }
   },
   mounted() {
