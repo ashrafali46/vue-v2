@@ -15,31 +15,36 @@
     <button @click="decrementWithPayload">
       Decrement 10
     </button>
-    <div class="container">
-            <div class="row mt-5">
-                <div class="col-lg-12 mb-3" v-for="(data, index) in user_data" :key="index">
-                    <div class="d-flex align-items-center ms-auto me-auto" style="max-width: 300px;">
-                        <div class="image">
-                            <img :src="data.avatar" alt="images" width="50" height="50" style="border-radius: 50%;" />
-                        </div>
-                        <div class="ms-2">
-                            <h1 class="heading-name">
-                                {{data.first_name}} {{data.last_name}}
-                            </h1>
-                            <h1 class="heading-email mb-0">
-                                {{data.email}}
-                            </h1>
-                        </div>
+    <div class="mt-3">
+      <!-- Props Example is a child component here. -->
+      <props-example :props_data="data_new" :counter="new_counter" :arr_day="arr_day" :arr_day_obj="arr_day_obj" ></props-example>
+    </div>
+    <!-- <div class="container">
+        <div class="row mt-5">
+            <div class="col-lg-12 mb-3" v-for="(data, index) in user_data" :key="index">
+                <div class="d-flex align-items-center ms-auto me-auto" style="max-width: 300px;">
+                    <div class="image">
+                        <img :src="data.avatar" alt="images" width="50" height="50" style="border-radius: 50%;" />
+                    </div>
+                    <div class="ms-2">
+                        <h1 class="heading-name">
+                            {{data.first_name}} {{data.last_name}}
+                        </h1>
+                        <h1 class="heading-email mb-0">
+                            {{data.email}}
+                        </h1>
                     </div>
                 </div>
             </div>
         </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import operations from '../mixins/operations.js';
 import NewPage from './newpage/NewPage.vue'
+import PropsExample from './PropsExample/PropsExample.vue'
 export default {
   name: 'HelloWorld',
   mixins: [operations],
@@ -47,11 +52,15 @@ export default {
     msg: String
   },
   components: {
-    NewPage
+    NewPage,
+    PropsExample
   },
   data() {
     return {
       new_counter: 0,
+      data_new: "Hello Props Example",
+      arr_day: [],
+      arr_day_obj: {},
     }
   },
   computed: {
@@ -63,9 +72,9 @@ export default {
     }
   },
   methods: {
-    increment() {
-      this.$store.commit('increase');
-    },
+    // increment() {
+    //   this.$store.commit('increase');
+    // },
     incrementWithPayload() {
       this.$store.commit('increase', {
         value: 10
