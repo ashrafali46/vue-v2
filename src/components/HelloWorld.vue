@@ -21,6 +21,8 @@
       <!-- Props Example is a child component here. -->
       <props-example @emitted_data="newEmittedData" @emitted_data_again="newEmittedDataAgain" :props_data="data_new" :counter="new_counter" :arr_day="arr_day" :arr_day_obj="arr_day_obj" ></props-example>
     </div>
+    <h1>Name: {{event_bus_data.name}}</h1>
+    <h1>Age: {{event_bus_data.age}}</h1>
     <!-- <div class="container">
         <div class="row mt-5">
             <div class="col-lg-12 mb-3" v-for="(data, index) in user_data" :key="index">
@@ -47,6 +49,7 @@
 import operations from '../mixins/operations.js';
 import NewPage from './newpage/NewPage.vue'
 import PropsExample from './PropsExample/PropsExample.vue'
+import {EventBus} from '../event-bus.js'; 
 export default {
   name: 'HelloWorld',
   mixins: [operations],
@@ -64,7 +67,8 @@ export default {
       arr_day: [],
       arr_day_obj: {},
       emitted_data_text: '',
-      emitted_data_text_again: ''
+      emitted_data_text_again: '',
+      event_bus_data: {}
     }
   },
   computed: {
@@ -123,6 +127,14 @@ export default {
   mounted() {
     console.log(this.user_data);
     this.performOperations('subtract');
+    EventBus.$on('event_bus_emitted', (data) => {
+      console.log(data);
+      this.event_bus_data = data;
+      this.incrementWithPayload();
+    })
+  },
+  destroyed() {
+    EventBus.$off('event_bus_emitted');
   }
   
 }

@@ -29,6 +29,9 @@
           </button>
         </div>
       </div>
+      <button class="btn-grad-blue" @click="performEventBus" type="button">
+          Event Bus
+        </button>
     </div>
   </div>
 </template>
@@ -36,6 +39,7 @@
 <script>
 import operations from '../../mixins/operations.js';
 import demo_api from '../../mixins/demo_api.js';
+import {EventBus} from '../../event-bus.js';
 export default {
   mixins: [operations, demo_api],
   data() {
@@ -62,6 +66,16 @@ export default {
           this.counter_value = 0;
           break;
       }
+    },
+    performEventBus() {
+      // EventBus.$emit('event_bus_emitted') // Without payload or data
+      this.$router.push('/');
+      setTimeout(() => {
+        EventBus.$emit('event_bus_emitted', { // with payload or data
+          name: 'test',
+          age: 24
+        })
+      }, 1000);
     }
   },
   // computed: {
