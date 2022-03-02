@@ -3,8 +3,10 @@
         <h1 class="text-dark fw-bold">Props Example</h1>
         {{props_data}}
         {{passed_data}}
-        <button class="btn btn-primary" @click="performEmit">Emit Data</button>
-        <button class="btn btn-secondary" @click="performEmit1">Emit Data 1</button>
+        <div class="d-flex align-items-center justify-content-center mt-2">
+            <button class="btn btn-primary" @click="performEmit">Emit Data</button>
+            <button class="btn btn-secondary ms-3" @click="performEmit1">Emit Data 1</button>
+        </div>
     </div>
 </template>
 <script>

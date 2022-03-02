@@ -1,20 +1,22 @@
 <template>
   <div class="hello">
-    <h3>
+    <h3 class="text-success fw-bold">
       {{counter}}
     </h3>
-    <h3>
+    <h3 class="text-danger fw-bold">
       {{new_counter}}
     </h3>
     <!-- <button @click="increment">
       Increment
     </button> -->
-    <button @click="incrementWithPayload">
-      Increment 10
-    </button>
-    <button @click="decrementWithPayload">
-      Decrement 10
-    </button>
+    <div class="d-flex align-items-center justify-content-center mt-2">
+      <button class="btn btn-success" @click="incrementWithPayload">
+        Increment 10
+      </button>
+      <button class="btn btn-danger ms-3" @click="decrementWithPayload">
+        Decrement 10
+      </button>
+    </div>
     <h1>{{emitted_data_text}}</h1>
     <h1>{{emitted_data_text_again}}</h1>
     <div class="mt-3">

@@ -29,9 +29,11 @@
           </button>
         </div>
       </div>
-      <button class="btn-grad-blue" @click="performEventBus" type="button">
+      <div class="d-flex align-items-center justify-content-center">
+        <button class="btn-grad-blue" @click="performEventBus" type="button">
           Event Bus
         </button>
+      </div>
     </div>
   </div>
 </template>
