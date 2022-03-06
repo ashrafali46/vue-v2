@@ -44,6 +44,11 @@
             </div>
         </div>
     </div> -->
+    <slots-example >
+      <h1 slot="example1">New Data</h1>
+      <h1 slot="example2">New Data 1</h1>
+      <h1 slot="example2">New Data 22</h1>
+    </slots-example>
   </div>
 </template>
 
@@ -51,6 +56,7 @@
 import operations from '../mixins/operations.js';
 import NewPage from './newpage/NewPage.vue'
 import PropsExample from './PropsExample/PropsExample.vue'
+import SlotsExample from './SlotsExample/SlotsExample.vue'
 import {EventBus} from '../event-bus.js'; 
 export default {
   name: 'HelloWorld',
@@ -60,7 +66,8 @@ export default {
   },
   components: {
     NewPage,
-    PropsExample
+    PropsExample,
+    SlotsExample
   },
   data() {
     return {
