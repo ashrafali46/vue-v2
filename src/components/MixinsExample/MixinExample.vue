@@ -34,6 +34,21 @@
           Event Bus
         </button>
       </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <button class="btn-grad-blue" @click="performRouterParams" type="button">
+          Router Params
+        </button>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <button class="btn-grad-blue" @click="performRouterQueryParams" type="button">
+          Router Query Params
+        </button>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <button class="btn-grad-blue" @click="performRouterHashData" type="button">
+          Router Hash Data
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -78,6 +93,15 @@ export default {
           age: 24
         })
       }, 1000);
+    },
+    performRouterParams() {
+      this.$router.push({ name: 'RouterExample', params: { username: 'eduardo' } })
+    },
+    performRouterQueryParams() {
+      this.$router.push({ path: '/newpage', query: { plan: 'private', plan1: 'public' } })
+    },
+    performRouterHashData() {
+      this.$router.push({ path: '/newpage', hash: '#team' })
     }
   },
   // computed: {

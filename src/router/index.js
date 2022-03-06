@@ -13,14 +13,20 @@ const routerOptions = [
     componentPath: 'newpage/NewPage'
   },
   {
-    path: '/newpage',
-    name: 'NewPage',
-    componentPath: 'newpage/NewPage'
-  },
-  {
     path: '/mixinexample',
     name: 'MixinsExample',
     componentPath: 'MixinsExample/MixinExample'
+  },
+  {
+    // path: '/routerexample/:username',  // :username is a dynamic parameter and it's required
+    path: '/routerexample/:username?',  // ? is a optional parameter
+    name: 'RouterExample',
+    componentPath: 'VueRouterAdvanced/VueRouterAdvanced'
+  },
+  {
+    path: '*',
+    name: 'NotFound',
+    componentPath: 'NotFound'
   },
 ];
 

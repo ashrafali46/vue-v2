@@ -1,6 +1,16 @@
 <template>
     <div>
         <h3 class="color-red">New page</h3>
+        <h1>{{$route.query.plan}}</h1>
+        <button class="btn btn-primary" @click="replaceRoute">
+            Replace Route
+        </button>
+        <button class="btn btn-success" @click="goBack">
+            Go Back
+        </button>
+        <button class="btn btn-danger" @click="goFroward">
+            Go Forward
+        </button>
         <div class="container">
             <div class="row mt-5">
                 <div class="col-lg-12 mb-3" v-for="(data, index) in user_data" :key="index">
@@ -45,7 +55,16 @@ export default {
                 console.log(error);
                 this.$store.commit('errorMessage', error);
             }
-        }
+        },
+        replaceRoute() {
+            this.$router.push({ path: '/', replace: true })
+        },
+        goBack() {
+            this.$router.go(-1)
+        },
+        goFroward() {
+            this.$router.go(1)
+        },
     },
     computed: {
         user_data() {
@@ -57,6 +76,8 @@ export default {
         setTimeout(() => {
             console.log(this.user_data)
         }, 1000);
+        // console.log(this.$route.query.plan)
+        console.log(this.$route.hash)
     }
 }
 </script>
